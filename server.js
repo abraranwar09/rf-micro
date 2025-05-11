@@ -1,6 +1,7 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -9,6 +10,9 @@ require('dotenv').config();
 
 // Middleware
 app.use(bodyParser.json());
+
+// CORS
+app.use(cors());
 
 // POST /contact endpoint
 app.post('/api/1.1/crm/contact', async (req, res) => {
